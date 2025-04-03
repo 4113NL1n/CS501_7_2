@@ -114,7 +114,11 @@ fun RepoScreen(modifier: Modifier = Modifier,viewModel: GitViewModel = viewModel
             }
             is GitViewModel.GitState.Error -> {
                 val errorMessage = (gitState as GitViewModel.GitState.Error).errorMessage
+                gitName = ""
                 Text("Error: $errorMessage", fontSize = 20.sp)
+
+                viewModel.resetState()
+
             }
         }
     }

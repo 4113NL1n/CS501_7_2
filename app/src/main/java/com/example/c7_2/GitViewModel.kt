@@ -43,6 +43,9 @@ class GitViewModel : ViewModel(){
     fun loadMoreRepos(name: String) {
         fetchGit(name)
     }
+    fun resetState(){
+        _gitState.value = GitState.Initial
+    }
     sealed class GitState {
         object Initial : GitState()
         object Loading : GitState()
